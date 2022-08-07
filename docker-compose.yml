@@ -1,0 +1,19 @@
+version: "3"
+services:
+  post:
+    image: postgres:14.4-alpine
+    restart: always
+    ports:
+      - "5432:5432"
+    networks:
+      - pean-app
+    volumes:
+      - /var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+networks:
+  pean-app:
+    driver: bridge
+volumes:
+  post-data:
+    driver: local

@@ -1,5 +1,6 @@
 import { Pool } from "pg";
 import * as dotenv from "dotenv";
+import logger from "./logger";
 
 dotenv.config({ path: "../.env" });
 
@@ -9,8 +10,17 @@ const pool = new Pool({
   host: process.env.POSTGRES_HOST,
   port: Number(process.env.POSTGRES_PORT),
   database: process.env.POSTGRESS_DB,
+  //ssl: true
 });
 
-// const pool = process.env.POSTGRES_USERNAME
+export function dbConnectTest() {
+  try {
+    pool.connect();
+    logger.info("Database Connected!");
+  } catch (e) {
+    logger.error("Can't connect to DB");
+    logger.error(e);
+  }
+}
 
 export default pool;

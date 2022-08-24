@@ -5,18 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EditTodoComponent } from './edit-todo/edit-todo.component';
 import { InputTodoComponent } from './input-todo/input-todo.component';
-import { ListTodoComponent } from './list-todo/list-todo.component';
+import { ListTodosComponent } from './list-todos/list-todos.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
     EditTodoComponent,
     InputTodoComponent,
-    ListTodoComponent
+    ListTodosComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

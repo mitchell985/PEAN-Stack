@@ -11,7 +11,7 @@ function routes(app: Express) {
 
   //create a todo
   app.post("/todos", async (req, res) => {
-    //add me to handlers pls
+    //add me to handlers pls and as model service controller
     try {
       const { description } = await req.body;
       const newTodo = await pool.query(

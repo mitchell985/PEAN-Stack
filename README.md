@@ -1,6 +1,11 @@
 # My PEAN Stack test application
+I created this application so I can learn the PEAN stack. Which consists of:
+- Postgres
+- Express.js
+- Angular.js
+- Node.js
 
-So I can learn the stack. This is a todo list application based on a convertion of this https://github.com/ousecTic/pern-todo-app/ PERN application specifically converting it from React to Angular.
+This is a todo list application based on a conversion of this https://github.com/ousecTic/pern-todo-app/ PERN application specifically converting it from React to Angular.
 
 The angular tutorial store page is also in here. Details on that can be found here. https://angular.io/start
 
@@ -26,7 +31,7 @@ yarn start
 ```
 
 ## Server
-To run the server cd to the directory and run the following commands
+First run the docker compose with the following command
 
 ```bash
 docker compose up

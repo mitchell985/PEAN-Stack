@@ -1,5 +1,24 @@
-<h1 class="text-center p-5">Pean Todo List</h1>
-<form class="d-flex p-5">
-    <input type="text" class="form-control">
-    <button class="btn  btn-success">Add</button>
-</form>
+<table class="table mt-5 text-center">
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let todo of todoList | async">
+            <td>
+                {{ todo.description }}
+            </td>
+            <td>
+                <app-edit-todo></app-edit-todo>
+            </td>
+            <td>
+                <button class="btn btn-danger">
+                    Delete
+                </button>
+            </td>
+        </tr>
+    </tbody>
+  </table>

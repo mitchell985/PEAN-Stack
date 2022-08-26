@@ -1,24 +1,30 @@
-<table class="table mt-5 text-center">
+<form>
+  <table class="table mt-5 text-center">
     <thead>
       <tr>
         <th>Description</th>
-        <th>Edit</th>
+        <!-- <th>Edit</th> -->
         <th>Delete</th>
       </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let todo of todoList | async">
-            <td>
-                {{ todo.description }}
-            </td>
-            <td>
-                <app-edit-todo></app-edit-todo>
-            </td>
-            <td>
-                <button class="btn btn-danger">
-                    Delete
-                </button>
-            </td>
-        </tr>
+      <tr *ngFor="let todo of todoList | async">
+        <td>
+          {{ todo.description }}
+        </td>
+        <!-- <td>
+          <app-edit-todo></app-edit-todo>
+        </td> -->
+        <td>
+          <button class="btn btn-danger" (click)="onDelete(todo.todo_id)">
+            Delete
+          </button>
+        </td>
+      </tr>
     </tbody>
   </table>
+</form>
+
+<!-- the fuck this is that made it work -->
+<p hidden>{{ deleteTodo | async }}</p>
+<!-- learn more about Observables. There must be a better way of doing this. -->

@@ -5,6 +5,8 @@ I created this application so I can learn the PEAN stack. Which consists of:
 - Angular.js
 - Node.js
 
+![The test application running!!!](https://github.com/mitchell985/PEAN-Stack/raw/master/PEAN%20Stack%20working!.png)
+
 This is a todo list application based on a conversion of this https://github.com/ousecTic/pern-todo-app/ PERN application specifically converting it from React to Angular.
 
 The angular tutorial store page is also in here. Details on that can be found here. https://angular.io/start

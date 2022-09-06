@@ -1,19 +1,41 @@
 version: "3"
 services:
-  post:
-    image: postgres:14.4-alpine
+# container_name: postgres_db
+# postgres database
+  postgres_db:
+    hostname: postgres_db
+    build: ./database/
+    # image: postgres:14.4-alpine
     restart: always
-    ports:
-      - "5432:5432"
     networks:
       - pean-app
     volumes:
       - /var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+# container_name: express_server
+# express api server
+  express_server:
+    hostname: express_server
+    build: ./server/
+    ports:
+      - "5000:5000"
+    networks:
+      - pean-app
+    depends_on:
+      - postgres_db
+# container_name: web_app
+# angular web app
+  web_app:
+    hostname: web_app
+    build: ./client/
+    ports:
+      - "80:80"
+    networks:
+      - pean-app
 networks:
   pean-app:
     driver: bridge
 volumes:
-  post-data:
+  postgres_db-data:
     driver: local

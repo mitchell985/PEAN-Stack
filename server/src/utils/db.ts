@@ -1,6 +1,7 @@
 import { Pool } from "pg";
 import * as dotenv from "dotenv";
 import logger from "./logger";
+import { setTimeout } from "timers/promises"
 
 dotenv.config({ path: "../.env" });
 
@@ -13,13 +14,16 @@ const pool = new Pool({
   //ssl: true
 });
 
-export function dbConnectTest() {
+export async function dbConnectTest() {
   try {
-    pool.connect();
+    await pool.connect();
     logger.info("Database Connected!");
   } catch (e) {
     logger.error("Can't connect to DB");
+    logger.error("Trying again in 5 seconds")
     logger.error(e);
+    await setTimeout(5000);
+    dbConnectTest();
   }
 }
 

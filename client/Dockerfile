@@ -2,8 +2,8 @@
 FROM node:16 as node
 WORKDIR /app
 COPY . .
-RUN npm install
-RUN npm run build --prod
+RUN yarn
+RUN yarn build
 
 # stage 2
 FROM nginx:alpine

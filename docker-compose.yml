@@ -17,6 +17,8 @@ services:
   express_server:
     hostname: express_server
     build: ./server/
+    ports:
+      - "5000:5000"
     networks:
       - pean-app
     depends_on:
